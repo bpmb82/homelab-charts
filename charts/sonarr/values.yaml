@@ -115,16 +115,16 @@ autoscaling:
 
 # Additional volumes on the output Deployment definition.
 volumes:
-  - name: config
+  - name: sonarr
     persistentVolumeClaim:
-      claimName: config
+      claimName: sonarr
   - name: downloads
     persistentVolumeClaim:
       claimName: downloads
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:
-  - name: config
+  - name: sonarr
     mountPath: /config
     readOnly: false
   - name: downloads
