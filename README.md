@@ -1,8 +1,22 @@
 # homelab-charts
 
+## Installation
+
+Add the repo:
+
+```
+helm repo add homelab-charts https://bpmb82.github.io/homelab-charts
+```
+
+Install a chart (e.g. sonarr):
+
+```
+helm install sonarr homelab-charts/sonarr --values=values.yml
+```
+
 ## Custom values
 
-Please make sure you define a PV and PVC for the 'config' and 'downloads' folders.
+Please make sure you define a PV and PVC for the 'config' and 'downloads' folders. A single 'downloads' folder is used for all applications so they can move files instead of having to copy them.
 
 ### Example PV
 ```
