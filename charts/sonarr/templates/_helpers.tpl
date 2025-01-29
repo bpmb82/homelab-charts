@@ -50,6 +50,13 @@ app.kubernetes.io/name: {{ include "sonarr.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
+Service selector labels
+*/}}
+{{- define "sonarr.serviceSelectorLabels" -}}
+app.kubernetes.io/name: {{ include "sonarr.name" . }}-service
+app.kubernetes.io/instance: {{ .Release.Name }}-service
+{{- end }}
+
 {{/*
 Create the name of the service account to use
 */}}
