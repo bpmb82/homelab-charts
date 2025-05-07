@@ -41,6 +41,8 @@ spec:
               containerPort: {{ .Values.service.port }}
               hostPort: {{ .Values.service.port }}
               protocol: TCP
+          env:
+            {{- toYaml .Values.environment | nindent 12 }}
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
