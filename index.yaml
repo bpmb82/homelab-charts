@@ -1,6 +1,38 @@
 apiVersion: v1
 entries:
+  radarr:
+  - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2025-05-07T20:37:31.104791294Z"
+    description: A Helm chart for Kubernetes
+    digest: 881000d3f1fbe0edd627dcd123852a142a32162d3fc9efcd5973bc7eaec8ec0e
+    name: radarr
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/radarr-0.1.0/radarr-0.1.0.tgz
+    version: 0.1.0
+  sabnzbd:
+  - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2025-05-07T20:37:31.321842176Z"
+    description: A Helm chart for Kubernetes
+    digest: 6bc7bf870173eafb7a6bb8a9f3538929e4a4a0bb2426615cd52ee01561da5738
+    name: sabnzbd
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/sabnzbd-0.1.0/sabnzbd-0.1.0.tgz
+    version: 0.1.0
   sonarr:
+  - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2025-05-07T20:37:31.580961094Z"
+    description: A Helm chart for Kubernetes
+    digest: 22248b3b21f1a2a569681f527fd9ddb69fffae7e9f9f62497a254af0ce2e2c1f
+    name: sonarr
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.9/sonarr-0.1.9.tgz
+    version: 0.1.9
   - apiVersion: v2
     appVersion: 1.0.1
     created: "2025-05-07T20:25:31.540445245Z"
@@ -91,4 +123,4 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.0/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2025-05-07T20:25:31.540485861Z"
+generated: "2025-05-07T20:37:31.581028911Z"
