@@ -14,6 +14,16 @@ entries:
   sabnzbd:
   - apiVersion: v2
     appVersion: 1.0.1
+    created: "2025-05-07T20:51:27.996085089Z"
+    description: A Helm chart for Kubernetes
+    digest: 2c9c38757767055feea2d938af374a2f0328ca0398dbb9a7b6ff3242a9330dd6
+    name: sabnzbd
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/sabnzbd-0.1.1/sabnzbd-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.0.1
     created: "2025-05-07T20:37:31.321842176Z"
     description: A Helm chart for Kubernetes
     digest: 6bc7bf870173eafb7a6bb8a9f3538929e4a4a0bb2426615cd52ee01561da5738
@@ -123,4 +133,4 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.0/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2025-05-07T20:37:31.581028911Z"
+generated: "2025-05-07T20:51:27.996119494Z"
