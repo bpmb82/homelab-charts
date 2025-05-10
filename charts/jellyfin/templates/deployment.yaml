@@ -25,6 +25,10 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- with .Values.strategy }}
+      strategy:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       serviceAccountName: {{ include "jellyfin.serviceAccountName" . }}
       {{- with .Values.podSecurityContext }}
       securityContext:

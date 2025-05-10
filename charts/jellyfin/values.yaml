@@ -110,6 +110,8 @@ volumeMounts:
     mountPath: /downloads
     readOnly: false
 
+strategy: {}
+
 nodeSelector: {}
 
 tolerations: []
