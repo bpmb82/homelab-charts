@@ -1,0 +1,108 @@
+// .github/renovate.json5 of renovate.json5
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  
+  "schedule": ["at any time"],
+
+  "docker-images": {
+    "enabled": false
+  },
+
+  "github-actions": {
+    "enabled": true
+  },
+
+  "packageRules": [
+    // --- HOME ASSISTANT ---
+    {
+      "matchPackageNames": ["homeassistant"],
+      "datasource": "github-releases",
+      "depName": "home-assistant/core",
+      "extractVersion": "^v?(?<version>.*)$", // Filtert 'v' prefix
+      "postUpdateOptions": [
+        {
+          "file": "charts/homeassistant/Chart.yaml",
+          "updateType": "regex",
+          "regex": "(?<=appVersion:\\s*)(\\S+)", // Matcht de huidige versie na 'appVersion: '
+          "replaceString": "${{nextRelease.version}}"
+        }
+      ]
+    },
+    // --- JELLYFIN ---
+    {
+      "matchPackageNames": ["jellyfin"],
+      "datasource": "github-releases",
+      "depName": "linuxserver/docker-jellyfin",
+      "extractVersion": "^v?(?<version>.*)$",
+      "postUpdateOptions": [
+        {
+          "file": "charts/jellyfin/Chart.yaml",
+          "updateType": "regex",
+          "regex": "(?<=appVersion:\\s*)(\\S+)",
+          "replaceString": "${{nextRelease.version}}"
+        }
+      ]
+    },
+    // --- RADARR ---
+    {
+      "matchPackageNames": ["radarr"],
+      "datasource": "github-releases",
+      "depName": "linuxserver/docker-radarr",
+      "extractVersion": "^v?(?<version>.*)$",
+      "postUpdateOptions": [
+        {
+          "file": "charts/radarr/Chart.yaml",
+          "updateType": "regex",
+          "regex": "(?<=appVersion:\\s*)(\\S+)",
+          "replaceString": "${{nextRelease.version}}"
+        }
+      ]
+    },
+    // --- SABNZBD ---
+    {
+      "matchPackageNames": ["sabnzbd"],
+      "datasource": "github-releases",
+      "depName": "linuxserver/docker-sabnzbd",
+      "extractVersion": "^v?(?<version>.*)$",
+      "postUpdateOptions": [
+        {
+          "file": "charts/sabnzbd/Chart.yaml",
+          "updateType": "regex",
+          "regex": "(?<=appVersion:\\s*)(\\S+)",
+          "replaceString": "${{nextRelease.version}}"
+        }
+      ]
+    },
+    // --- SLSKD ---
+    {
+      "matchPackageNames": ["slskd"],
+      "datasource": "github-releases",
+      "depName": "slskd/slskd",
+      "extractVersion": "^v?(?<version>.*)$",
+      "postUpdateOptions": [
+        {
+          "file": "charts/slskd/Chart.yaml",
+          "updateType": "regex",
+          "regex": "(?<=appVersion:\\s*)(\\S+)",
+          "replaceString": "${{nextRelease.version}}"
+        }
+      ]
+    },
+    // --- SONARR ---
+    {
+      "matchPackageNames": ["sonarr"],
+      "datasource": "github-releases",
+      "depName": "linuxserver/docker-sonarr",
+      "extractVersion": "^v?(?<version>.*)$",
+      "postUpdateOptions": [
+        {
+          "file": "charts/sonarr/Chart.yaml",
+          "updateType": "regex",
+          "regex": "(?<=appVersion:\\s*)(\\S+)",
+          "replaceString": "${{nextRelease.version}}"
+        }
+      ]
+    }
+  ]
+}
