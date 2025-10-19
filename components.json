@@ -18,7 +18,7 @@
     },
     {
       "name": "slskd",
-      "repo": "https://api.github.com/repos/linuxserver/docker-slskd/releases"
+      "repo": "https://api.github.com/repos/slskd/slskd/releases"
     },
     {
       "name": "sonarr",
