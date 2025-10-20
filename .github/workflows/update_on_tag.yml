@@ -43,6 +43,13 @@ jobs:
           echo "COMPONENT=$COMPONENT" >> $GITHUB_OUTPUT
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
+      - name: Check if we saved everything to GITHUB_OUTPUT
+        id: check_previous_step
+        run: |
+          echo TAG_NAME=${{ steps.get_tag_parts.outputs.TAG_NAME }}
+          echo COMPONENT=${{ steps.get_tag_parts.outputs.COMPONENT }}
+          echo VERSION=${{ steps.get_tag_parts.outputs.VERSION }}
+
       # - name: Update version in Helm chart
       #   run: |
       #     old_chart_version=$(awk '/^version/{print $2}' charts/${{ steps.get_tag_parts.outputs.COMPONENT }}/Chart.yaml)
