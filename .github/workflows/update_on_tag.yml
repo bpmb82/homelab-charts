@@ -6,16 +6,16 @@ on:
       - "*_*"
 
 jobs:
-  release:
+  update_on_tag:
     permissions:
       contents: write
 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
-          fetch-depth: 0      
+          token: ${{ secrets.PAT_TOKEN }}    
 
       - name: Configure Git
         run: |
@@ -65,4 +65,4 @@ jobs:
           git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
           git add .
           git commit -m "Update version of ${{ steps.get_tag_parts.outputs.COMPONENT }} to ${{ steps.get_tag_parts.outputs.VERSION }}"
-          git push https://${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git master
+          git push origin master
