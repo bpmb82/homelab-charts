@@ -20,9 +20,7 @@ jobs:
       - name: Configure Git
         run: |
           git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"  
-      - name: Set up Helm
-        uses: azure/setup-helm@v4.2.0
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
       - name: Get tag
         id: tag
@@ -34,10 +32,6 @@ jobs:
           TAG_NAME=${{ steps.tag.outputs.tag }}
           COMPONENT=$(echo -n $TAG_NAME | cut -d '_' -f 1)
           VERSION=$(echo -n $TAG_NAME | cut -d '_' -f 2)
-
-          echo TAG_NAME=$TAG_NAME
-          echo COMPONENT=$COMPONENT
-          echo VERSION=$VERSION
 
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_OUTPUT
           echo "COMPONENT=$COMPONENT" >> $GITHUB_OUTPUT
@@ -61,13 +55,14 @@ jobs:
 
       - name: Update version in Helm chart
         run: |
+          git checkout master
+          git pull
           old_chart_version=$(awk '/^version/{print $2}' charts/${{ steps.get_tag_parts.outputs.COMPONENT }}/Chart.yaml)
           new_chart_version=$(echo $old_chart_version | awk -F. -v OFS=. 'NF==1{print ++$NF}; NF>1{if(length($NF+1)>length($NF))$(NF-1)++; $NF=sprintf("%0*d", length($NF), ($NF+1)%(10^length($NF))); print}')
           sed -i "s/^version:.*$/version: $new_chart_version/" charts/${{ steps.get_tag_parts.outputs.COMPONENT }}/Chart.yaml
           sed -i 's/^.*appVersion.*$/appVersion: "${{ steps.get_tag_parts.outputs.VERSION }}"/' charts/${{ steps.get_tag_parts.outputs.COMPONENT }}/Chart.yaml
           git config user.name "$ {{ github.actor }}"
           git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
-          git checkout master
           git add .
           git commit -m "Update version of ${{ steps.get_tag_parts.outputs.COMPONENT }} to ${{ steps.get_tag_parts.outputs.VERSION }}"
-          git push
+          git push https://${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git master
