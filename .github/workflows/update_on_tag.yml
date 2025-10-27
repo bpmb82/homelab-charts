@@ -73,6 +73,6 @@ jobs:
           event-type: run-chart-release
           client-payload: |
             {
-              "component": "${{ steps.get_tag.outputs.component }}",
-              "version": "${{ steps.get_tag.outputs.version }}"
+              "component": "${{ steps.get_tag.outputs.COMPONENT }}",
+              "version": "${{ steps.get_tag.outputs.VERSION }}"
             }

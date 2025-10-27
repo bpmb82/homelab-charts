@@ -43,8 +43,8 @@ jobs:
             echo "### Workflow variables"
             echo "| Variable   | Value       |"
             echo "| ---------- | ----------- |"
-            echo "| COMPONENT | ${{ steps.get_tag_parts.outputs.COMPONENT }} |"
-            echo "| VERSION   | ${{ steps.get_tag_parts.outputs.VERSION }} |"
+            echo "| COMPONENT | ${{ github.event.client_payload.component }} |"
+            echo "| VERSION   | ${{ github.event.client_payload.version }} |"
           } >> $GITHUB_STEP_SUMMARY
 
       - name: Run chart-releaser
