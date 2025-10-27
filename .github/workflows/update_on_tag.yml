@@ -72,7 +72,7 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           event-type: run-chart-release
           client-payload: |
-            {
+            '{
               "component": "${{ steps.get_tag.outputs.COMPONENT }}",
               "version": "${{ steps.get_tag.outputs.VERSION }}"
-            }
+            }'
