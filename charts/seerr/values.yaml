@@ -97,7 +97,7 @@ volumes:
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:
   - name: seerr
-    mountPath: /config
+    mountPath: /app/config
     readOnly: false
 
 nodeSelector: {}
