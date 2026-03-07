@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "headscale.fullname" . }}
+  labels:
+    {{- include "headscale.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+    {{- if .Values.sidecar.enabled }}
+    - port: {{ .Values.sidecar.port }}
+      targetPort: headplane-port
+      protocol: TCP
+      name: headplane
+    {{- end }}
+  selector:
+    {{- include "headscale.selectorLabels" . | nindent 4 }}
