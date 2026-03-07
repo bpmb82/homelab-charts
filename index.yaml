@@ -21,6 +21,17 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/bazarr-0.0.2/bazarr-0.0.2.tgz
     version: 0.0.2
+  headscale:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-03-07T15:15:40.701329439Z"
+    description: A Helm chart for Kubernetes
+    digest: fe2e50ff81773c21ec1b3a42564557d4b9a0c5d9414d05093a18088d9d393d4b
+    name: headscale
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/headscale-1.0.1/headscale-1.0.1.tgz
+    version: 1.0.1
   homeassistant:
   - apiVersion: v2
     appVersion: 2025.10.3
@@ -318,4 +329,4 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.0/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2026-02-28T10:25:28.086330133Z"
+generated: "2026-03-07T15:15:40.701406329Z"
