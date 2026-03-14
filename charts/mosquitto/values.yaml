@@ -119,3 +119,10 @@ config: |
   persistence true
   persistence_location /mosquitto/data/
   allow_anonymous true
+  sys_interval 10
+
+prometheus_export:
+  enabled: true
+  image: sapcc/mosquitto-exporter:latest
+  port: 9324
+  interval: 10s
