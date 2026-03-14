@@ -144,6 +144,17 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/jellyfin-0.1.0/jellyfin-0.1.0.tgz
     version: 0.1.0
+  mosquitto:
+  - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2026-03-14T14:15:23.112409465Z"
+    description: A Helm chart for Kubernetes
+    digest: 75e08885335f60374d27cfdfe4c9a2461f473d44de51c1f3bbdbd3788c19b66b
+    name: mosquitto
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/mosquitto-1.0.2/mosquitto-1.0.2.tgz
+    version: 1.0.2
   radarr:
   - apiVersion: v2
     appVersion: 1.0.1
@@ -339,4 +350,4 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.0/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2026-03-07T22:50:11.16503089Z"
+generated: "2026-03-14T14:15:23.112473936Z"
