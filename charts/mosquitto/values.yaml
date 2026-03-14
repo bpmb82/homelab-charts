@@ -123,6 +123,15 @@ config: |
 
 prometheus_export:
   enabled: true
-  image: sapcc/mosquitto-exporter:latest
-  port: 9324
+  image: kpetrem/mosquitto-exporter:latest
+  port: 9000
   interval: 10s
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9000"
+    prometheus.io/path: "/metrics"
+  environment:
+    - name: MQTT_ADDRESS
+      value: "localhost"
+    - name: MQTT_PORT
+      value: "1883"
