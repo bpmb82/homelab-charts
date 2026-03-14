@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mosquitto
+data:
+  mosquitto.conf: |
+{{ .Values.config | nindent 4 }}
