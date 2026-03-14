@@ -126,7 +126,7 @@ config: |
 
 prometheus_export:
   enabled: true
-  image: kpetrem/mosquitto-exporter:latest
+  image: docker.io/kpetrem/mqtt-exporter:latest
   port: 9000
   interval: 10s
   environment:
