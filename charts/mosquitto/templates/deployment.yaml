@@ -15,6 +15,9 @@ spec:
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- with .Values.prometheus_export.annotations }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       labels:
         {{- include "mosquitto.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
@@ -64,7 +67,7 @@ spec:
         - name: mosquitto-exporter
           image: {{ .Values.prometheus_export.image }}
           args:
-            - "--mqtt.address=tcp://localhost:1883"
+            - "--mqtt.address=tcp://localhost:{{ .Values.service.port }}"
             - "--bind-address 0.0.0.0:{{ .Values.prometheus_export.port }}"
           ports:
             - name: metrics
