@@ -15,9 +15,6 @@ spec:
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.prometheus_export.annotations }}
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       labels:
         {{- include "mosquitto.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
@@ -72,6 +69,8 @@ spec:
           ports:
             - name: metrics
               containerPort: {{ .Values.prometheus_export.port }}
+          env:
+            {{- toYaml .Values.prometheus_export.environment | nindent 12 }}
           resources:
             limits:
               cpu: 100m
