@@ -11,5 +11,11 @@ spec:
       targetPort: {{ .Values.service.port }}
       protocol: TCP
       name: mqtt
+    {{- if .Values.prometheus_export.enabled }}
+    - port: {{ .Values.prometheus_export.port }}
+      targetPort: {{ .Values.prometheus_export.port }}
+      protocol: TCP
+      name: metrics
+    {{- end }}
   selector:
     {{- include "mosquitto.selectorLabels" . | nindent 4 }}
