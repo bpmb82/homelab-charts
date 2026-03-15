@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "sonarr.fullname" . }}
+  name: {{ include "lgremux.fullname" . }}
   labels:
-    {{- include "sonarr.labels" . | nindent 4 }}
+    {{- include "lgremux.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "sonarr.selectorLabels" . | nindent 4 }}
+    {{- include "lgremux.selectorLabels" . | nindent 4 }}

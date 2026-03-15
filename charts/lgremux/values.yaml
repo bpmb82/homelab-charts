@@ -1,4 +1,4 @@
-# Default values for sonarr.
+# Default values for lgremux.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -90,7 +90,7 @@ environment:
   - name: SONARR_API_TOKEN
     valueFrom:
       secretKeyRef:
-        name: sonarr-secrets
+        name: lgremux-secrets
         key: api-token
   - name: SONARR_PORT
     value: "8989"
