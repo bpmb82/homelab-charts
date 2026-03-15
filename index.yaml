@@ -146,6 +146,16 @@ entries:
     version: 0.1.0
   mosquitto:
   - apiVersion: v2
+    appVersion: 1.0.7
+    created: "2026-03-15T09:34:47.040635858Z"
+    description: A Helm chart for Kubernetes
+    digest: a708c5a86156e9f3a993b4f8b7a6143f6f9588a793afdfc4a8ce34b692538ee1
+    name: mosquitto
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/mosquitto-1.0.8/mosquitto-1.0.8.tgz
+    version: 1.0.8
+  - apiVersion: v2
     appVersion: 1.0.6
     created: "2026-03-14T15:51:22.596513332Z"
     description: A Helm chart for Kubernetes
@@ -400,4 +410,4 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.0/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2026-03-14T15:51:22.596597188Z"
+generated: "2026-03-15T09:34:47.040709354Z"
