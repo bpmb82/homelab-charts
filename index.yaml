@@ -144,6 +144,17 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/jellyfin-0.1.0/jellyfin-0.1.0.tgz
     version: 0.1.0
+  lgremux:
+  - apiVersion: v2
+    appVersion: 0.1.13
+    created: "2026-03-15T17:08:14.332516585Z"
+    description: A Helm chart for Kubernetes
+    digest: 8b05b3f63cd5af1989a6a22c11d86cc40d3eed8d7171af0ad1d711f168bc7609
+    name: lgremux
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/lgremux-0.1.12/lgremux-0.1.12.tgz
+    version: 0.1.12
   mosquitto:
   - apiVersion: v2
     appVersion: 1.0.7
@@ -420,4 +431,4 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.0/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2026-03-15T16:35:20.557621886Z"
+generated: "2026-03-15T17:08:14.332590182Z"
