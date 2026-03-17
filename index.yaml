@@ -3,6 +3,16 @@ entries:
   bazarr:
   - apiVersion: v2
     appVersion: 1.5.6
+    created: "2026-03-17T21:29:26.094392588Z"
+    description: A Helm chart for Kubernetes
+    digest: 19be9fbff9e1e85bc66dd237594bd872a86da2f7493cc0b492ebdd1d6efd7b40
+    name: bazarr
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/bazarr-1.0.4/bazarr-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
+    appVersion: 1.5.6
     created: "2026-03-17T21:18:45.649523834Z"
     description: A Helm chart for Kubernetes
     digest: bbab14125318498518b897f9211f4e77528cf8766baefdc73a7dd098266cbb54
@@ -551,4 +561,4 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.0/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2026-03-17T21:27:22.805380617Z"
+generated: "2026-03-17T21:29:26.094503725Z"
