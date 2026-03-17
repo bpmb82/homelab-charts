@@ -3,6 +3,16 @@ entries:
   bazarr:
   - apiVersion: v2
     appVersion: 1.5.6
+    created: "2026-03-17T21:18:45.649523834Z"
+    description: A Helm chart for Kubernetes
+    digest: bbab14125318498518b897f9211f4e77528cf8766baefdc73a7dd098266cbb54
+    name: bazarr
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/bazarr-1.0.3/bazarr-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
+    appVersion: 1.5.6
     created: "2026-03-15T20:29:12.676470157Z"
     description: A Helm chart for Kubernetes
     digest: 58553199252198bd25f04358d9b1b72d8f9fb425d75029c58250bcce45078756
@@ -74,6 +84,16 @@ entries:
     - https://github.com/bpmb82/homelab-charts/releases/download/homeassistant-0.1.0/homeassistant-0.1.0.tgz
     version: 0.1.0
   jellyfin:
+  - apiVersion: v2
+    appVersion: 10.11.6
+    created: "2026-03-17T21:18:45.79318427Z"
+    description: A Helm chart for Kubernetes
+    digest: d99d10a03acabf4a1640869736533fef7cce9449785e01f2c3265b886f464c21
+    name: jellyfin
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/jellyfin-0.2.3/jellyfin-0.2.3.tgz
+    version: 0.2.3
   - apiVersion: v2
     appVersion: 10.11.6
     created: "2026-03-15T20:16:18.684169291Z"
@@ -176,6 +196,16 @@ entries:
     - https://github.com/bpmb82/homelab-charts/releases/download/lgremux-0.1.12/lgremux-0.1.12.tgz
     version: 0.1.12
   mosquitto:
+  - apiVersion: v2
+    appVersion: 2.1.2-alpine
+    created: "2026-03-17T21:18:45.952239503Z"
+    description: A Helm chart for Kubernetes
+    digest: 703eb0002b8f633f7f7d7d954f2f98fff8bf1445bea8ddb1f914907ee0ab640f
+    name: mosquitto
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/mosquitto-1.0.9/mosquitto-1.0.9.tgz
+    version: 1.0.9
   - apiVersion: v2
     appVersion: 1.0.7
     created: "2026-03-15T09:34:47.040635858Z"
@@ -342,6 +372,16 @@ entries:
   slskd:
   - apiVersion: v2
     appVersion: 0.24.5
+    created: "2026-03-17T21:18:46.161979511Z"
+    description: A Helm chart for Kubernetes
+    digest: 0814525afa38c78296a223e51fe33f58dc95d067d9a2f407eda66e27eebfd3c6
+    name: slskd
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/slskd-0.1.2/slskd-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 0.24.5
     created: "2026-03-15T20:27:45.207191107Z"
     description: A Helm chart for Kubernetes
     digest: 175d3dbbf667dd883a6d29304bcca27c99c0e4b42730e1e889d9b99539be4e8b
@@ -501,4 +541,4 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.0/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2026-03-15T20:32:31.053659777Z"
+generated: "2026-03-17T21:18:46.162146232Z"
