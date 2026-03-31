@@ -95,7 +95,7 @@ environment:
   - name: SONARR_PORT
     value: "8989"
   - name: SONARR_URL
-    value: ""
+    value: "http://sonarr.sonarr.svc.cluster.local"
 
 # Additional volumes on the output Deployment definition.
 volumes:
