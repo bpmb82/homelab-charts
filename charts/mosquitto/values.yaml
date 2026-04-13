@@ -126,11 +126,11 @@ config: |
 
 prometheus_export:
   enabled: true
-  image: docker.io/kpetrem/mqtt-exporter:latest
-  port: 9000
+  image: docker.io/bpmbee/mosquitto-exporter:latest
+  port: 9090
   interval: 10s
   environment:
     - name: MQTT_ADDRESS
-      value: "localhost"
+      value: "tcp://127.0.0.1"
     - name: MQTT_PORT
       value: "1883"
