@@ -96,6 +96,11 @@ environment:
     value: "8989"
   - name: SONARR_URL
     value: "http://sonarr.sonarr.svc.cluster.local"
+  - name: DISCORD_WEBHOOK
+    valueFrom:
+      secretKeyRef:
+        name: lgremux-secrets
+        key: discord_url
 
 # Additional volumes on the output Deployment definition.
 volumes:
