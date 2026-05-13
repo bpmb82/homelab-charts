@@ -336,6 +336,16 @@ entries:
     version: 0.1.0
   lgremux:
   - apiVersion: v2
+    appVersion: 0.1.14
+    created: "2026-05-13T22:15:03.395239887Z"
+    description: A Helm chart for Kubernetes
+    digest: c6b35b2207baaf07bf68807d2d73af7d8ae9274d5322cca219370574e04d4f56
+    name: lgremux
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/lgremux-0.1.13/lgremux-0.1.13.tgz
+    version: 0.1.13
+  - apiVersion: v2
     appVersion: 0.1.13
     created: "2026-03-15T17:08:14.332516585Z"
     description: A Helm chart for Kubernetes
@@ -801,4 +811,4 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.0/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2026-05-07T07:47:36.179934Z"
+generated: "2026-05-13T22:15:03.395444506Z"
