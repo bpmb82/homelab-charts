@@ -87,15 +87,24 @@ environment:
     value: "1000"
   - name: TZ
     value: "UTC"
+  - name: SONARR_URL
+    value: "http://sonarr.sonarr.svc.cluster.local"
+  - name: SONARR_PORT
+    value: "8989"
   - name: SONARR_API_TOKEN
     valueFrom:
       secretKeyRef:
         name: lgremux-secrets
-        key: api-token
-  - name: SONARR_PORT
-    value: "8989"
-  - name: SONARR_URL
-    value: "http://sonarr.sonarr.svc.cluster.local"
+        key: sonarr_api_token
+  - name: RADARR_URL
+    value: "http://radarr.radarr.svc.cluster.local"
+  - name: RADARR_PORT
+    value: "7878"
+  - name: RADARR_API_TOKEN
+    valueFrom:
+      secretKeyRef:
+        name: lgremux-secrets
+        key: radarr_api_token
   - name: DISCORD_WEBHOOK
     valueFrom:
       secretKeyRef:
