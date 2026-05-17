@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "forgejo-runner.fullname" . }}
+  labels:
+    {{- include "forgejo-runner.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "forgejo-runner.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "forgejo-runner.selectorLabels" . | nindent 8 }}
+    spec:
+      # Koppeling met de gegenereerde ServiceAccount
+      serviceAccountName: {{ include "forgejo-runner.serviceAccountName" . }}
+      containers:
+        # Container 1: Docker-in-Docker
+        - name: docker-in-docker
+          image: docker:dind
+          securityContext:
+            privileged: true
+          command: ["dockerd", "-H", "tcp://127.0.0.1:2375", "--tls=false"]
+          volumeMounts:
+            - name: docker-storage
+              mountPath: /var/lib/docker
+
+        # Container 2: Forgejo Runner
+        - name: runner
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext:
+            runAsUser: 1001
+            runAsGroup: 1001
+          env:
+            - name: DOCKER_HOST
+              value: tcp://127.0.0.1:2375
+            - name: FORGEJO_INSTANCE_URL
+              value: {{ .Values.runnerConfig.forgejoUrl | quote }}
+            - name: FORGEJO_RUNNER_REGISTRATION_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.runnerConfig.secretRef.name | quote }}
+                  key: {{ .Values.runnerConfig.secretRef.key | quote }}
+          command: ["forgejo-runner", "daemon"]
+          volumeMounts:
+            - name: runner-data
+              mountPath: /data
+
+      volumes:
+        - name: runner-data
+          {{- if .Values.persistence.existingClaim }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | quote }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+
+        - name: docker-storage
+          emptyDir: {}

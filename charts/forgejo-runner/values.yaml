@@ -1,0 +1,22 @@
+replicaCount: 1
+
+image:
+  repository: data.forgejo.org/forgejo/runner
+  tag: "" # Leeg laten om .Chart.AppVersion (12) te gebruiken
+  pullPolicy: IfNotPresent
+
+runnerConfig:
+  forgejoUrl: "https://jouw-forgejo-instantie.nl"
+  secretRef:
+    name: "forgejo-runner-secret"
+    key: "registration-token"
+
+persistence:
+  existingClaim: ""
+
+# Configuratie voor de resources die we intact hebben gelaten
+serviceAccount:
+  create: true
+  automount: false
+  annotations: {}
+  name: ""
