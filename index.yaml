@@ -215,6 +215,16 @@ entries:
     version: 0.1.0
   jellyfin:
   - apiVersion: v2
+    appVersion: 10.11.10
+    created: "2026-05-25T09:01:38.555282774Z"
+    description: A Helm chart for Kubernetes
+    digest: 5f06ef92f7339f617b3285ca3f7b4579c58900b98ea1b382d56eed1095517224
+    name: jellyfin
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/jellyfin-0.3.0/jellyfin-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     appVersion: 10.11.9
     created: "2026-05-21T08:37:02.851290944Z"
     description: A Helm chart for Kubernetes
@@ -891,4 +901,4 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.0/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2026-05-21T08:39:04.005882227Z"
+generated: "2026-05-25T09:01:38.555527955Z"
