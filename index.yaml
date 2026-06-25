@@ -852,6 +852,16 @@ entries:
     version: 0.1.0
   sonarr:
   - apiVersion: v2
+    appVersion: version-4.0.18.2971
+    created: "2026-06-25T08:26:43.492678425Z"
+    description: A Helm chart for Kubernetes
+    digest: 62433dae4cfdaba261703f34d1e43b9780a80d9d1292794a82ff85594d8bf079
+    name: sonarr
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.15/sonarr-0.1.15.tgz
+    version: 0.1.15
+  - apiVersion: v2
     appVersion: version-4.0.17.2952
     created: "2026-03-19T18:54:15.139354544Z"
     description: A Helm chart for Kubernetes
@@ -1001,4 +1011,4 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.0/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2026-06-13T08:28:21.979859663Z"
+generated: "2026-06-25T08:26:43.493003903Z"
