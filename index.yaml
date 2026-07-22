@@ -861,6 +861,16 @@ entries:
     version: 0.1.1
   slskd:
   - apiVersion: v2
+    appVersion: 0.26.0
+    created: "2026-07-22T07:37:51.714905302Z"
+    description: A Helm chart for Kubernetes
+    digest: f5249ffed820bd386759d6bb20bef08ee368017c53c8f932a5e51a08a99096e1
+    name: slskd
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/slskd-0.1.5/slskd-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
     appVersion: 0.25.1
     created: "2026-04-25T06:22:28.642289143Z"
     description: A Helm chart for Kubernetes
@@ -1081,4 +1091,4 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.0/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2026-07-13T08:22:42.611077067Z"
+generated: "2026-07-22T07:37:51.715062458Z"
