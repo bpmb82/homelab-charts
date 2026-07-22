@@ -84,6 +84,16 @@ entries:
     version: 1.0.1
   homeassistant:
   - apiVersion: v2
+    appVersion: 2026.7.3
+    created: "2026-07-22T07:39:50.083217972Z"
+    description: A Helm chart for Kubernetes
+    digest: eacf00a799a8a4bb5ee6533887db45a7b92fe75a236fdd6c7eeb928f724df8f3
+    name: homeassistant
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/homeassistant-0.3.4/homeassistant-0.3.4.tgz
+    version: 0.3.4
+  - apiVersion: v2
     appVersion: 2026.7.2
     created: "2026-07-13T08:22:42.610911157Z"
     description: A Helm chart for Kubernetes
@@ -1091,4 +1101,4 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.0/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2026-07-22T07:37:51.715062458Z"
+generated: "2026-07-22T07:39:50.083411525Z"
