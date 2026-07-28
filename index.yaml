@@ -810,6 +810,16 @@ entries:
     version: 0.1.0
   seerr:
   - apiVersion: v2
+    appVersion: v3.4.0
+    created: "2026-07-28T07:43:33.903642003Z"
+    description: A Helm chart for Kubernetes
+    digest: 1835789da8605552ef5f160e4a19ea99162e3cbb0160a6ffd10968c4a9f036df
+    name: seerr
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/seerr-0.1.7/seerr-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
     appVersion: v3.3.0
     created: "2026-06-04T08:54:33.595272873Z"
     description: A Helm chart for Kubernetes
@@ -1101,4 +1111,4 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.0/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2026-07-22T07:39:50.083411525Z"
+generated: "2026-07-28T07:43:33.904060336Z"
