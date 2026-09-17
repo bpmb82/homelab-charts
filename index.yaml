@@ -738,6 +738,16 @@ entries:
     version: 1.0.2
   radarr:
   - apiVersion: v2
+    appVersion: version-6.4.4.10685
+    created: "2026-09-17T10:01:00.822282943Z"
+    description: A Helm chart for Kubernetes
+    digest: 51f3954538c61f4836968200defddc3b4c7059f7526c3ace24fe213da1dadf1e
+    name: radarr
+    type: application
+    urls:
+    - https://github.com/bpmb82/homelab-charts/releases/download/radarr-0.1.7/radarr-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
     appVersion: version-6.3.0.10514
     created: "2026-07-13T08:20:36.689902055Z"
     description: A Helm chart for Kubernetes
@@ -1241,4 +1251,4 @@ entries:
     urls:
     - https://github.com/bpmb82/homelab-charts/releases/download/sonarr-0.1.0/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2026-09-17T09:54:56.147898334Z"
+generated: "2026-09-17T10:01:00.822468247Z"
