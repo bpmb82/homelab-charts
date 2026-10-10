@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/trigger: {{ include (print $.Template.BasePath "/trigger-configmap.yaml") . | sha256sum }}
+        config-restarted-at: 'initial'
         {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
