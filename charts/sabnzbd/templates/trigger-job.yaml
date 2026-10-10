@@ -34,6 +34,9 @@ spec:
             fi
           fi
 
+          echo "Waiting for storage to settle..."
+          sleep 5
+
           TIMESTAMP=$(date +%s)
           echo "Triggering deployment restart via timestamp: $TIMESTAMP"
           kubectl patch deployment {{ include "sabnzbd.fullname" . }} --type=strategic -p \
