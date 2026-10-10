@@ -16,31 +16,48 @@ spec:
       containers:
       - name: updater
         image: bitnami/kubectl:latest
-        command:
+      command:
         - /bin/sh
         - -c
         - |
           INI_FILE="/config/sabnzbd.ini"
-          if [ -f "$INI_FILE" ]; then
-            sed -i 's/^host_whitelist.*/host_whitelist = localhost, 127.0.0.1, {{ .Values.trustedDomain }}/' "$INI_FILE"
-            
-            EXITCODE=$?
-
-            if [ "$EXITCODE" == "0" ]; then
-              echo "INI file updated successfully."
-            else
-              echo "Error running sed on sabnzbd.ini: $EXITCODE"
-              exit $EXITCODE
+          COUNTER=0
+          MAX_RETRIES=30
+          
+          while [ ! -f "$INI_FILE" ]; do
+            COUNTER=$((COUNTER + 1))
+            if [ "$COUNTER" -ge "$MAX_RETRIES" ]; then
+              echo "Error: Timeout reached. $INI_FILE is not available after $((MAX_RETRIES * 2)) seconds."
+              exit 1
             fi
-          fi
+            echo "Waiting for configuration file (attempt $COUNTER/$MAX_RETRIES)..."
+            sleep 2
+          done
 
-          echo "Waiting for storage to settle..."
-          sleep 5
+          sed -i 's/^host_whitelist.*/host_whitelist = localhost, 127.0.0.1, {{ .Values.trustedDomain }}/' "$INI_FILE"
+          EXITCODE=$?
+          
+          if [ "$EXITCODE" -ne 0 ]; then
+            echo "Error: sed failed with exit code $EXITCODE."
+            exit $EXITCODE
+          fi
+          
+          echo "INI file updated successfully."
+          sleep 3
 
           TIMESTAMP=$(date +%s)
           echo "Triggering deployment restart via timestamp: $TIMESTAMP"
+          
           kubectl patch deployment {{ include "sabnzbd.fullname" . }} --type=strategic -p \
             "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"config-restarted-at\":\"$TIMESTAMP\"}}}}}"
+            
+          PATCH_EXIT=$?
+          if [ "$PATCH_EXIT" -ne 0 ]; then
+            echo "Error: Failed to patch deployment."
+            exit $PATCH_EXIT
+          fi
+          
+          echo "Deployment patched and restart triggered successfully."
         volumeMounts:
         {{- with .Values.volumeMounts }}
         volumeMounts:
