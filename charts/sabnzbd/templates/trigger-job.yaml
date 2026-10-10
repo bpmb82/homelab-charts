@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "sabnzbd.fullname" . }}-config-fixer
+  name: {{ include "sabnzbd.fullname" . }}-trigger-job
   annotations:
     "helm.sh/hook": post-install,post-upgrade
     "helm.sh/hook-delete-policy": hook-succeeded
@@ -24,8 +24,10 @@ spec:
           fi
 
           TIMESTAMP=$(date +%s)
-          echo "Updating trigger configmap with timestamp: $TIMESTAMP"
-          kubectl patch configmap {{ include "sabnzbd.fullname" . }}-trigger-cm --type=merge -p "{\"data\":{\"last-updated\":\"$TIMESTAMP\"}}"
+          echo "Triggering deployment restart via timestamp: $TIMESTAMP"
+          kubectl patch deployment {{ include "sabnzbd.fullname" . }} --type=strategic -p \
+            "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"config-restarted-at\":\"$TIMESTAMP\"}}}}}"
+        volumeMounts:
         {{- with .Values.volumeMounts }}
         volumeMounts:
           {{- toYaml . | nindent 10 }}

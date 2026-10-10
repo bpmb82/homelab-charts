@@ -6,7 +6,7 @@ metadata:
     "helm.sh/hook": post-install,post-upgrade
     "helm.sh/hook-delete-policy": hook-succeeded
 rules:
-- apiGroups: [""]
-  resources: ["configmaps"]
-  resourceNames: ["{{ include "sabnzbd.fullname" . }}-trigger-cm"]
-  verbs: ["get", "patch", "update"]
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  resourceNames: ['{{ include "sabnzbd.fullname" . }}']
+  verbs: ["get", "patch"]
