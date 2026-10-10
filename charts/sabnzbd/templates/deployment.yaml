@@ -11,10 +11,11 @@ spec:
       {{- include "sabnzbd.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
+        checksum/trigger: {{ include (print $.Template.BasePath "/trigger-configmap.yaml") . | sha256sum }}
+        {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
-      {{- end }}
+        {{- end }}
       labels:
         {{- include "sabnzbd.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
