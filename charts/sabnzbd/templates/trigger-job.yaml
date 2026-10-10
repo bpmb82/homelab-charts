@@ -8,22 +8,24 @@ metadata:
 spec:
   template:
     spec:
+      serviceAccountName: {{ include "sabnzbd.fullname" . }}-trigger-sa
       restartPolicy: OnFailure
       containers:
-      - name: ini-updater
-        image: alpine:latest
+      - name: updater
+        image: bitnami/kubectl:latest
         command:
         - /bin/sh
         - -c
         - |
-          apk add --no-cache sed
           INI_FILE="/config/sabnzbd.ini"
           if [ -f "$INI_FILE" ]; then
             sed -i 's/^host_whitelist.*/host_whitelist = localhost, 127.0.0.1, {{ .Values.trustedDomain }}/' "$INI_FILE"
-            echo "Host whitelist successfully updated!"
-          else
-            echo "INI file not found yet, skipping."
+            echo "INI file updated successfully."
           fi
+
+          TIMESTAMP=$(date +%s)
+          echo "Updating trigger configmap with timestamp: $TIMESTAMP"
+          kubectl patch configmap {{ include "sabnzbd.fullname" . }}-trigger-cm --type=merge -p "{\"data\":{\"last-updated\":\"$TIMESTAMP\"}}"
         {{- with .Values.volumeMounts }}
         volumeMounts:
           {{- toYaml . | nindent 10 }}
