@@ -4,7 +4,7 @@ metadata:
   name: {{ include "sabnzbd.fullname" . }}-trigger-rb
   annotations:
     "helm.sh/hook": post-install,post-upgrade
-    "helm.sh/hook-delete-policy": hook-succeeded
+    #"helm.sh/hook-delete-policy": hook-succeeded
 subjects:
 - kind: ServiceAccount
   name: {{ include "sabnzbd.fullname" . }}-trigger-sa
